@@ -1,0 +1,102 @@
+/* Box sizing border-box for all elements */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove default padding */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  padding: 0;
+}
+
+/* Set default font family and size */
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default styles for links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* Remove default styles for form elements */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  outline: none;
+}
+
+select option:disabled {
+  color: #808080;
+}
+
+input[type="radio"] {
+  width: min-content;
+}
+
+input[type="radio"]:focus {
+  outline: none;
+}
+
+/* Normalize line height */
+body {
+  line-height: 1.5;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}

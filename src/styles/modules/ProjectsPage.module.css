@@ -1,0 +1,208 @@
+.container {
+    padding: 5px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    position: relative;
+    
+}
+
+.section {
+    margin: 0px 50px;
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+}
+
+.section>div:first-of-type>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+}
+
+a{
+    color: var(--primary-background-color);
+    opacity: 80%;
+    white-space: nowrap;
+}
+
+.activeTab a{
+    color: var(--primary-accent-color);
+}
+
+.activeTab{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.filteredContent{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem 1.5%;
+    position: relative;
+    flex-wrap: wrap;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.close{
+    position: absolute;
+    top: -10%;
+    right: -4%;
+    width: min-content !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+;}
+
+.close svg{
+    height: 32px !important;
+    width: 32px !important;
+    border-radius: 0.3rem;
+    opacity: 80%;
+    opacity: 50%;
+}
+
+.close:hover svg{
+    opacity: 100%;
+}
+
+.close:active svg{
+    color: var(--primary-text-color);
+    opacity: 100%;
+    outline: 2px solid var(--primary-text-color);
+}
+
+.close button{
+    background: none;
+    padding: 5px;
+    margin: 0;
+    outline: none;
+}
+
+.close svg{
+    color: var(--primary-text-color);
+    width: 24px;
+    height: 24px;
+    margin: 0;
+}
+
+.collapsed {
+    max-height: 0px;
+    padding: 0px 30px;
+}
+
+.expanded {
+    max-height: 1000px;
+    padding: 20px 30px;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 5px 10px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .filteredContent .card {
+        width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .filteredContent .card {
+        width: 48% !important;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .filteredContent .card {
+        width: 32.2% !important;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .filteredContent .card {
+        width: 23.8% !important;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .filteredContent .card {
+        width: 18.8% !important;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .filteredContent .card {
+        width: 13% !important;
+    }
+}
+
+
+.section div {
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 150px;
+    width: 23.8% !important;
+    background: white;
+    border-radius: 0.5rem;
+    background: var(--primary-background-color);
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px black;
+    z-index: 2;
+}
+
+.card h4 {
+    font-size: 2rem;
+    line-height: 3rem;
+    user-select: none;
+}
+
+:has(.card:hover) .card {
+    filter: blur(3px) contrast(30%) brightness(60%);
+}
+
+.card:hover {
+    color: var(--primary-accent-color);
+    filter: brightness(100%) !important;
+    cursor: pointer;
+    box-shadow: 0px 5px 20px black;
+    transform: scale(105%);
+}
+
+.section .card video {
+    position: absolute;
+    object-fit: cover;
+    object-position: 0% 15%;
+    height: 150%;
+    width: 180%;
+    opacity: 1;
+    transition: all 1s ease-in-out 0.2s;
+}
+
+.section .card img {
+    object-fit: cover !important;
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,150 @@
+body{
+  overflow-y: scroll;
+}
+
+main {
+  
+}
+
+footer {
+  position: fixed;
+  display: flex;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--secondary-background-color);
+  color: var(--secondary-text-color);
+}
+
+button {
+  width: min-content;
+  padding: 0.5rem 3rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary-background-color);
+  outline: 1px solid var(--primary-accent-color);
+  outline-offset: -3px;
+  font-weight: 900;
+  color: white;
+}
+
+i {
+  color: var(--secondary-text-color);
+  font-style: normal;
+}
+
+a {
+  color: white;
+  transform-origin: left;
+  position: relative;
+  width: 100%;
+  font-weight: 900;
+  padding: 5px;
+}
+label{
+  display: flex;
+  gap: 0.5rem;
+  color: var(--primary-text-color);
+}
+
+/* Width and Track */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--primary-background-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-accent-color);
+  border-radius: 6px;
+  border: 3px solid var(--primary-background-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-text-color);
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+  background-color: var(--primary-background-color);
+}
+
+/* Basic styling for the tooltip */
+[aria-label] {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Styling for the tooltip content */
+[aria-label]::before {
+  content: attr(aria-label);
+  /* Use the value of aria-label as the tooltip content */
+  position: absolute;
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out 1s;
+  font-size: small;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.8), 0px 5px 25px rgba(43, 43, 43, 0.5);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+[label-position="bottom"]::before {
+  top: 90%;
+  right: 50%;
+  transform: translateY(-100%) translateX(120%);
+}
+
+[label-position="left"]::before {
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%) translateX(-15%);
+}
+
+[label-position="right"]::before {
+  top: 0%;
+  left: 100%;
+  transform: translateY(10%) translateX(10%);
+}
+
+[label-position="top-left"]::before {
+  top: 0%;
+  right: 100%;
+  transform: translateY(-50%) translateX(0%);
+}
+
+[label-position="bottom-right"]::before {
+  top: 100%;
+  left: 100%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+/* Show the tooltip on hover */
+[aria-label]:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+.indent {
+  margin-left: 1.5rem;
+}
+
+h3 b {
+  color: var(--secondary-accent-color) !important;
+}
+
+p b {
+  color: purple;
+}
+
+p i {
+  color: var(--primary-text-color);
+}

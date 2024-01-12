@@ -1,0 +1,17 @@
+.container {
+    padding: 5px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    position: relative;
+}

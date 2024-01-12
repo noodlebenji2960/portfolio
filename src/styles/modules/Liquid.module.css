@@ -1,0 +1,117 @@
+.blobContainer {
+    position: fixed;
+    background: var(--primary-background-color);
+    height: 100vh;
+    width: 100vw;
+    filter: blur(10px) contrast(15);
+    z-index: -2;
+    outline: 20px solid var(--primary-background-color);
+}
+
+.blobContainerZoom{
+    filter: blur(10px) contrast(2);
+}
+
+.blob {
+    --speed1: 1.5s;
+    --speed2: 0.2s;
+    position: absolute;
+    background: var(--secondary-accent-color);
+    transform-origin: center;
+    z-index: -2;
+}
+
+.blobTransition1 {
+    transition: all var(--speed1) ease-in-out, transform 0.02s ease-in-out, background 0.1s ease-in-out;
+}
+
+.blobTransition2 {
+    transition: all var(--speed1) ease-in-out, transform 0.04s ease-in-out, background 0.1s ease-in-out;
+}
+
+.blobTransition3 {
+    transition: all var(--speed1) ease-in-out, transform 0.06s ease-in-out, background 0.1s ease-in-out;
+}
+
+.blobTransition4 {
+    transition: all var(--speed1) ease-in-out, transform 0.08s ease-in-out, background 0.1s ease-in-out;
+}
+
+.blobTransition5 {
+    transition: all var(--speed1) ease-in-out, transform 0.10s ease-in-out, background 0.1s ease-in-out;
+}
+
+.blobTransition6 {
+    transition: all var(--speed1) ease-in-out, transform 0.12s ease-in-out, background 0.1s ease-in-out;
+}
+
+.blobTransition7 {
+    transition: all var(--speed1) ease-in-out, transform 0.15s ease-in-out, background 0.1s ease-in-out;
+}
+
+.blobTransition8 {
+    transition: all var(--speed1) ease-in-out, transform 0.17s ease-in-out, background 0.1s ease-in-out;
+}
+
+.blobTransition9 {
+    transition: all var(--speed1) ease-in-out, transform 0.20s ease-in-out, background 0.1s ease-in-out;
+}
+
+.blobTransition10 {
+    transition: all var(--speed1) ease-in-out, transform 0.25s ease-in-out, background 0.1s ease-in-out;
+}
+
+.bgBlob {
+    position: absolute;
+    z-index: -2;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 0.2s;
+    background: var(--secondary-accent-color);
+}
+
+.bgBlobUp {
+    animation-name: moveUp;
+    bottom: -10%;
+    transition: all 20s ease, border-radius 1s ease-in-out, left 20s ease-in-out, background 0.1s ease-in-out;
+}
+
+.bgBlobDown {
+    animation-name: moveDown;
+    top: -100%;
+    transition: all 60s ease, border-radius 1s ease-in-out, left 20s ease-in-out, top 0.2s ease-in-out, background 0.1s ease-in-out;
+}
+
+.liquidControl{
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+}
+
+.liquidControl button{
+    padding: 10px;
+    width: min-content;
+}
+
+@keyframes moveUp {
+    0% {
+        bottom: -10%;
+    }
+
+    100% {
+        bottom: 100%;
+    }
+}
+
+@keyframes moveDown {
+    0% {
+        top: -10%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}

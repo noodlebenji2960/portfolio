@@ -1,0 +1,12 @@
+.dropdown{
+    position: fixed;
+    background: var(--primary-background-color);
+    padding: 10px;
+    border-radius: 0.5rem;
+    box-shadow: 0px 5px 10ps black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    z-index: 99999 !important;
+}

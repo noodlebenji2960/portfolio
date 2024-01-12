@@ -1,0 +1,45 @@
+.darkMode {
+  /* Primary Colors */
+  --primary-accent-color: #ffae00;
+  --primary-inverted-accent-color: #db9b34;
+  --primary-text-color: #ffffff;
+  --primary-background-color: #222222;
+  --primary-button-background-color: #333;
+  --primary-button-background-color-hover: #cccccc;
+  --primary-button-icon-color: #333;
+
+  /* Secondary Colors */
+  --secondary-accent-color: #00FF00;
+  --secondary-text-color: #588db3;
+  --secondary-background-color: #77a6c5dd;
+
+  /* Common Colors */
+  --border-color: #313131;
+
+  /* Common Sizes and Shadows */
+  --border-radius: 4px;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lightMode {
+  /* Primary Colors */
+  --primary-accent-color: #ff2200;
+  --primary-inverted-accent-color: #db9b34;
+  --primary-text-color: #000000;
+  --primary-background-color: #ffffff;
+  --primary-button-background-color: #333;
+  --primary-button-background-color-hover: #cccccc;
+  --primary-button-icon-color: #333;
+
+  /* Secondary Colors */
+  --secondary-accent-color: #000000;
+  --secondary-text-color: #588db3;
+  --secondary-background-color: #77a6c5dd;
+
+  /* Common Colors */
+  --border-color: #ddd;
+
+  /* Common Sizes and Shadows */
+  --border-radius: 4px;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
