@@ -213,3 +213,18 @@
     transform: translateY(-50%);
     z-index: 1;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+form textarea{
+    min-height: 150px;
+}
+
+form input{
+    width: 100%;
+}

@@ -1,13 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Carousel from "./Carousel";
 import styles from "../styles/modules/IntroHeader.module.css"
 
 import { FaReact, FaHtml5, FaCss3Alt, FaGithub, FaNodeJs, FaGit, FaChevronLeft } from "react-icons/fa";
 import { SiWebpack, SiBabel, SiMongodb, SiFirebase, SiExpress, SiJest } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
+import Icon from "./Icon";
 
 const IntroHeader = ({ collapsedHeader }) => {
+    const location = useLocation()
     const navigate = useNavigate()
 
     const goBack = () => {
@@ -29,7 +31,13 @@ const IntroHeader = ({ collapsedHeader }) => {
                             }}>
                                 <FaChevronLeft />
                             </Link>}
-                            {document.title}
+                            {collapsedHeader && <Link onClick={(e) => {
+                                e.preventDefault()
+                                goBack()
+                            }}>
+                                <Icon name={"MdHomeFilled"} />
+                            </Link>}
+                            {location.pathname}
                         </h2>
                     ) : (
                         <h2>

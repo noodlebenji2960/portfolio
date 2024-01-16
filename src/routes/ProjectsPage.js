@@ -5,6 +5,7 @@ import { projectDataArray } from "../data/projectData"
 import styles from "../styles/modules/ProjectsPage.module.css";
 
 import { MdClose } from "react-icons/md";
+import { IoIosSearch } from "react-icons/io";
 
 const ProjectsPage = () => {
     const filteredRef = useRef()
@@ -31,7 +32,7 @@ const ProjectsPage = () => {
             isOver ? element.classList.add(styles.hovered) : element.classList.remove(styles.hovered)
         );
     };
-    
+
 
     useEffect(() => {
         const pathSegments = location.pathname.slice(1).split('/');
@@ -61,16 +62,22 @@ const ProjectsPage = () => {
         setFilteredData(shuffledArray)
     }, [])
 
-    useEffect(()=>{
-        document.title = "Projects"
-    },[location.pathname])
+    useEffect(() => {
+        document.title = "projects"
+    }, [location.pathname])
 
-    useEffect(()=>{
-        console.log()
-    })
+    useEffect(() => {
+        console.log(activeFilter)
+    }, [activeFilter])
 
     return (
         <div className={styles.container}>
+            <section>
+                <span>
+                    <IoIosSearch />
+                    <input type="search" placeholder="Search..." />
+                </span>
+            </section>
             <section>
                 <nav>
                     <ul>
@@ -102,7 +109,7 @@ const ProjectsPage = () => {
                             <Link
                                 className={`${activeFilter == "sideProjects" ? styles.activeTab : styles.inactiveTab}`}
                                 to="/sideProjects" >
-                                &gt; projects
+                                &gt; sideProjects
                             </Link>
                             {activeFilter == "sideProjects" && (
                                 <Link
@@ -127,11 +134,6 @@ const ProjectsPage = () => {
                         </li>
                     </ul>
                 </nav>
-                <div className={styles.close}>
-                    {activeFilter && <button onClick={() => setActiveFilter()}>
-                        <MdClose />
-                    </button>}
-                </div>
                 <div ref={filteredRef} className={`${styles.filteredContent} ${activeFilter ? styles.expanded : styles.collapsed} `}>
                     {filteredData && filteredData.length > 0 && filteredData.map((project, i) => {
                         if (project.preview.type == "video" && (activeFilter == "all" || project.catagory == activeFilter)) {

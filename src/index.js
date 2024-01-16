@@ -21,6 +21,7 @@ import Liquid from "./components/Liquid";
 import ProjectPage from "./routes/ProjectPage";
 import IntroHeader from "./components/IntroHeader";
 import ProjectsPage from "./routes/ProjectsPage";
+import ContactPage from "./routes/ContactPage";
 
 // Create a context with a default value (false for light mode)
 const DarkModeContext = createContext(false);
@@ -121,6 +122,8 @@ const routes = createRoutesFromElements(
             <Route path=":projectId" element={<ProjectPage />} />
             <Route path="webDev" element={<ProjectsPage activeTab={"projects"} />} />
         </Route>
+
+        <Route path="contact" element={<ContactPage/>}/>
     </Route>
 );
 
