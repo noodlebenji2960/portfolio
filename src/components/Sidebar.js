@@ -23,7 +23,7 @@ function Sidebar({follows, setFollows, bgOn, setBgOn, liquidAmount, setLiquidAmo
                     </Link>
                 </li>
                 <li aria-label='Projects' label-position="left">
-                    <Link to="/projects">
+                    <Link to="/all">
                         <Icon name={"FaCode"} />
                     </Link>
                 </li>
@@ -33,7 +33,7 @@ function Sidebar({follows, setFollows, bgOn, setBgOn, liquidAmount, setLiquidAmo
                     </Link>
                 </li>
                 <li aria-label='Github' label-position="left">
-                    <Link to="/github">
+                    <Link to="https://github.com/noodlebenji2960" target="_blank" rel="noopener noreferrer">
                         <Icon name={"FaGithub"} />
                     </Link>
                 </li>

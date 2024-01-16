@@ -10,10 +10,8 @@
 
   /* Secondary Colors */
   --secondary-accent-color: #00FF00;
-  --secondary-text-color: #588db3;
   --secondary-background-color: #77a6c5dd;
 
-  /* Common Colors */
   --border-color: #313131;
 
   /* Common Sizes and Shadows */
@@ -33,13 +31,16 @@
 
   /* Secondary Colors */
   --secondary-accent-color: #000000;
-  --secondary-text-color: #588db3;
   --secondary-background-color: #77a6c5dd;
 
-  /* Common Colors */
   --border-color: #ddd;
 
   /* Common Sizes and Shadows */
   --border-radius: 4px;
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+:root{
+  --common-text-color: #b9d3ea;
+  --secondary-text-color: #2371aa;
 }

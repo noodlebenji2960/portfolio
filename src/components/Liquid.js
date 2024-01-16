@@ -98,7 +98,7 @@ const LiquidParticle = ({ blobTransitionClass, follows }) => {
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            window.addEventListener('scrollend', handleScrollEnd);
+            window.removeEventListener('scrollend', handleScrollEnd);
         };
     }, []);
 
@@ -118,7 +118,7 @@ const LiquidParticle = ({ blobTransitionClass, follows }) => {
     )
 }
 
-const BgLiquidParticle = ({ direction, bgOn }) => {
+const BgLiquidParticle = ({ direction, bgOn, ...props }) => {
     const blobRef = useRef()
     const [blobSize, setBlobSize] = useState({ size: direction == "up" ? getRandomNumber(80, 110) : getRandomNumber(40, 60), variance: getRandomNumber(-10, 50) });
     const [blobPosition, setBlobPosition] = useState({
@@ -174,6 +174,7 @@ const BgLiquidParticle = ({ direction, bgOn }) => {
                     height: blobSize.size + blobSize.variance,
                     borderRadius: `${blobBorderRadius.val1}% ${blobBorderRadius.val2}% ${blobBorderRadius.val3}% ${blobBorderRadius.val4}% / ${blobBorderRadius.val5}% ${blobBorderRadius.val6}% ${blobBorderRadius.val7}% ${blobBorderRadius.val8}%`,
                 }}
+            {...props}
         />
         <div
             ref={blobRef}
@@ -186,6 +187,7 @@ const BgLiquidParticle = ({ direction, bgOn }) => {
                     height: blobSize.size + blobSize.variance,
                     borderRadius: `${blobBorderRadius.val1 - getRandomNumber(10, 20)}% ${blobBorderRadius.val2 - getRandomNumber(10, 20)}% ${blobBorderRadius.val3 - getRandomNumber(10, 20)}% ${blobBorderRadius.val4 - getRandomNumber(10, 20)}% / ${blobBorderRadius.val5 - getRandomNumber(10, 20)}% ${blobBorderRadius.val6 - getRandomNumber(10, 20)}% ${blobBorderRadius.val7 - getRandomNumber(10, 20)}% ${blobBorderRadius.val8 - getRandomNumber(10, 20)}%`,
                 }}
+            {...props}
         />
     </>)
 }
@@ -221,8 +223,8 @@ const LiquidBackGround = ({ bgOn, liquidAmount }) => {
     const downParticles = []
 
     for (let i = 0; i < liquidAmount; i++) {
-        upParticles.push(<BgLiquidParticle bgOn={bgOn} direction="up" />)
-        downParticles.push(<BgLiquidParticle bgOn={bgOn} direction="down" />)
+        upParticles.push(<BgLiquidParticle key={i+"up"} bgOn={bgOn} direction="up" />)
+        downParticles.push(<BgLiquidParticle key={i+"down"} bgOn={bgOn} direction="down" />)
     }
 
     return <div className={styles.blobContainer}>

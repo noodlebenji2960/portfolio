@@ -32,10 +32,20 @@
     width: min-content;
 }
 
+.section nav ul li a:first-of-type{
+    margin-left: -10px !important;
+}
+
 a{
+    display: flex;
     color: var(--primary-background-color);
     opacity: 80%;
     white-space: nowrap;
+    transition: all 0.1s ease-in-out;
+}
+
+a:hover{
+    color: white;
 }
 
 .activeTab a{
@@ -44,6 +54,10 @@ a{
 
 .activeTab{
     background: rgba(0, 0, 0, 0.7);
+}
+
+.inactiveTab{
+    color: var(--primary-background-color) !important;
 }
 
 .filteredContent{
@@ -205,4 +219,8 @@ a{
     object-fit: cover !important;
     height: 100%;
     width: 100%;
+}
+
+.section:has(.hovered) .card:not(.hovered){
+    filter: blur(3px) contrast(30%) brightness(60%);
 }

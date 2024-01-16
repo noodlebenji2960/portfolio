@@ -1,6 +1,5 @@
 .container {
     padding: 5px;
-    padding-top: 50px;
     padding-bottom: 50px;
     overflow: hidden;
     display: flex;
@@ -14,4 +13,10 @@
     flex-direction: column;
     border-radius: 0.5rem;
     position: relative;
+    color: var(--primary-text-color);
+    padding: 0px 50px;
+}
+
+.section > div{
+    margin: 50px;
 }

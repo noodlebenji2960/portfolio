@@ -68,14 +68,14 @@ export const Layout = () => {
     const [follows, setFollows] = useState(false)
     const [bgOn, setBgOn] = useState(true)
     const [liquidAmount, setLiquidAmount] = useState(3)
-    const [contrast, setContrast]=useState(15)
-    const [blur, setBlur]=useState(10)
+    const [contrast, setContrast] = useState(15)
+    const [blur, setBlur] = useState(10)
 
     useEffect(() => {
         if (location.pathname !== "/") {
             setCollapsedHeader(true)
             setFollows(false)
-            setBgOn(true)
+            setBgOn(false)
             setContrast(0)
         } else {
             setCollapsedHeader(false)
@@ -85,15 +85,10 @@ export const Layout = () => {
         }
     }, [location, blur, contrast])
 
-    useEffect(()=>{
-        console.log(blur)
-        console.log(contrast)
-    })
-
     return (
         <>
-            <Liquid follows={follows} bgOn={bgOn} liquidAmount={liquidAmount} setLiquidAmount={setLiquidAmount} contrast={contrast} setContrast={setContrast} blur={blur} setBlur={setBlur}/>
-            <Sidebar follows={follows} setFollows={setFollows} bgOn={bgOn} setBgOn={setBgOn} liquidAmount={liquidAmount} setLiquidAmount={setLiquidAmount} contrast={contrast} setContrast={setContrast} blur={blur} setBlur={setBlur}/>
+            <Liquid follows={follows} bgOn={bgOn} liquidAmount={liquidAmount} setLiquidAmount={setLiquidAmount} contrast={contrast} setContrast={setContrast} blur={blur} setBlur={setBlur} />
+            <Sidebar follows={follows} setFollows={setFollows} bgOn={bgOn} setBgOn={setBgOn} liquidAmount={liquidAmount} setLiquidAmount={setLiquidAmount} contrast={contrast} setContrast={setContrast} blur={blur} setBlur={setBlur} />
             <IntroHeader collapsedHeader={collapsedHeader} />
             <main>
                 <Outlet />
@@ -105,21 +100,27 @@ export const Layout = () => {
 const routes = createRoutesFromElements(
     <Route element={<Layout />} errorElement={<ErrorPage />}>
         <Route index element={<IndexPage />} />
-        <Route path="projects" element={<ProjectsPage />} />
 
         <Route path="all" element={<ProjectsPage activeTab={"all"} />} />
 
-        <Route path="sideProjects" element={<ProjectsPage activeTab={"sideProjects"} />} />
-        <Route path="sideProjects/:projectId" element={<ProjectPage />} />
+        <Route path="sideProjects" element={<ProjectsPage activeTab={"sideProjects"} />} >
+            <Route path="webDev" element={<ProjectsPage activeTab={"sideProjects"} />} />
+        </Route>
 
-        <Route path="projects" element={<ProjectsPage activeTab={"projects"} />} />
-        <Route path="projects/:projectId" element={<ProjectPage />} />
+        <Route path="live" element={<ProjectsPage activeTab={"live"} />} >
+            <Route path="webDev" element={<ProjectsPage activeTab={"live"} />} />
+        </Route>
 
-        <Route path="live" element={<ProjectsPage activeTab={"live"} />} />
-        <Route path="live/:projectId" element={<ProjectPage />} />
+        <Route path="design" element={<ProjectsPage activeTab={"design"} />} >
+            <Route path="typography" element={<ProjectsPage activeTab={"design"} />} />
+            <Route path="logos" element={<ProjectsPage activeTab={"design"} />} />
+            <Route path="icons" element={<ProjectsPage activeTab={"design"} />} />
+        </Route>
 
-        <Route path="design" element={<ProjectsPage activeTab={"design"} />} />
-        <Route path="design/:projectId" element={<ProjectPage />} />
+        <Route path="projects">
+            <Route path=":projectId" element={<ProjectPage />} />
+            <Route path="webDev" element={<ProjectsPage activeTab={"projects"} />} />
+        </Route>
     </Route>
 );
 

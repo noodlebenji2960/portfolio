@@ -2,14 +2,56 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import styles from "../styles/modules/IndexPage.module.css";
+import Icon from "../components/Icon";
 
-import { MdClose } from "react-icons/md";
-import { projectsData } from "../data/projectData";
+import { BsLinkedin } from "react-icons/bs";
 
 const IndexPage = () => {
 
     return (<>
         <div className={styles.pageContainer}>
+            <div className={styles.section}>
+                <nav>
+                    <ul>
+                        <li>
+                            <h3>
+                                <Link to={"/all"}>
+                                    <i>const</i>&nbsp;<b>projects</b>
+                                </Link>
+                                &nbsp; = &nbsp;
+                                <Icon name={"FaCode"} />
+                            </h3>
+                        </li>
+                        <li>
+                            <h3>
+                                <Link to={"/resume"}>
+                                    <i>const</i>&nbsp;<b>resume</b>
+                                </Link>
+                                &nbsp; = &nbsp;
+                                <BsLinkedin/>
+                            </h3>
+                        </li>
+                        <li>
+                            <h3>
+                                <Link to={"/contact"}>
+                                    <i>const</i>&nbsp;<b>say👋</b>
+                                </Link>
+                                &nbsp; = &nbsp;
+                                <Icon name={"MdEmail"} />
+                            </h3>
+                        </li>
+                        <li>
+                            <h3>
+                                <Link to={"https://github.com/noodlebenji2960"} target="_blank" rel="noopener noreferrer">
+                                    <i>const</i>&nbsp;<b>gitHub</b>
+                                </Link>
+                                &nbsp; = &nbsp;
+                                <Icon name={"FaGithub"} />
+                            </h3>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             <div className={styles.section}>
                 <div>
                     <h3><i>function</i> ☕ intoCode &#123;</h3>
@@ -17,7 +59,7 @@ const IndexPage = () => {
                     <h3>&#125;</h3>
                 </div>
             </div>
-        </div>
+        </div >
     </>);
 };
 
