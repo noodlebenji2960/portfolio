@@ -1,20 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Carousel from "./Carousel";
 import styles from "../styles/modules/IntroHeader.module.css"
 
-import { FaReact, FaHtml5, FaCss3Alt, FaGithub, FaNodeJs, FaGit } from "react-icons/fa";
+import { FaReact, FaHtml5, FaCss3Alt, FaGithub, FaNodeJs, FaGit, FaChevronLeft } from "react-icons/fa";
 import { SiWebpack, SiBabel, SiMongodb, SiFirebase, SiExpress, SiJest } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
 
 const IntroHeader = ({ collapsedHeader }) => {
+    const navigate = useNavigate()
+
+    const goBack = () => {
+        navigate(-1)
+    }
 
     return (
         <div className={styles.container}>
-            <div className={styles.section}>
+            <section>
                 <h1 className={collapsedHeader == true ? styles.collapsedHeader : ""}>
-                    {collapsedHeader  ? <b>Benjamin John Chick</b> : <b><i>Hello,</i> I'm Benjamin.</b>}
+                    {collapsedHeader ? <b>Benjamin John Chick</b> : <b><i>Hello,</i> I'm Benjamin.</b>}
                 </h1>
                 <span className={styles.stainedGlass}>
-                   {collapsedHeader ? <h2>{document.title}</h2> : <h2>Fullstack Web Developer / UX designer</h2>}
+                    {collapsedHeader ? (
+                        <h2>
+                            {collapsedHeader && <Link onClick={(e) => {
+                                e.preventDefault()
+                                goBack()
+                            }}>
+                                <FaChevronLeft />
+                            </Link>}
+                            {document.title}
+                        </h2>
+                    ) : (
+                        <h2>
+                            Fullstack Web Developer / UX designer
+                        </h2>
+                    )}
                     <Carousel collapsed={collapsedHeader}>
                         <div aria-label="HTML5: A markup language used for structuring and presenting content on the World Wide Web." label-position="bottom">
                             <FaHtml5 />
@@ -54,7 +75,7 @@ const IntroHeader = ({ collapsedHeader }) => {
                         </div>
                     </Carousel>
                 </span>
-            </div>
+            </section>
         </div>
     )
 }

@@ -71,7 +71,7 @@ const ProjectsPage = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.section}>
+            <section>
                 <nav>
                     <ul>
                         <li className={`${activeFilter == "all" ? styles.activeTab : styles.inactiveTab}`}>
@@ -152,7 +152,7 @@ const ProjectsPage = () => {
                         }
                     })}
                 </div>
-            </div>
+            </section>
         </div>
     )
 }

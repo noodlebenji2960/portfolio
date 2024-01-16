@@ -8,10 +8,9 @@
     gap: 0.5rem;
     transition: 1s all ease;
     z-index: -1 !important;
-    max-height: 50vh;
 }
 
-.section {
+.container section {
     display: flex;
     flex-direction: column;
     border-radius: 0.5rem;
@@ -22,15 +21,13 @@
     margin-top: 25%;
     justify-content: end;
     transition: 1s all ease;
-    max-height: 50vh;
 }
 
-.section h1 {
+.container section h1 {
     font-size: 3.5rem;
     line-height: 4rem !important;
     width: fit-content;
     height: 100%;
-    max-height: 100vh;
     padding: 5px;
     border-radius: 0;
     outline: 1px solid var(--primary-background-color);
@@ -41,7 +38,7 @@
     overflow: hidden;
 }
 
-.section h1::after{
+.container section h1::after{
     content: "";
     position: absolute;
     top: 0;
@@ -63,26 +60,26 @@
     padding-top: 25pxpx;
 }
 
-.section:has(.collapsedHeader){
+.container section:has(.collapsedHeader){
     margin-top: 0% !important;
 }
 
-.section h1 b {
+.container section h1 b {
     color: var(--primary-text-color);
 }
 
-.section h1 b:last-of-type{
+.container section h1 b:last-of-type{
     color: var(--primary-text-color);
     font-weight: 1000;
     letter-spacing: 0.1rem;
 }
 
-.section h1 i {
+.container section h1 i {
     font-weight: 600;
     color: var(--primary-text-color);
 }
 
-.section h2 {
+.container section h2 {
     color: var(--primary-background-color);
     position: relative;
     padding: 5px 10px;
@@ -114,35 +111,35 @@
 }
 
 @media screen and (max-width: 740px) {
-    .section:first-of-type {
+    .container section:first-of-type {
         margin: 25px 50px;
         margin-top: 50px;
     }
 
-    .section h1,
-    .section h1::after {
+    .container section h1,
+    .container section h1::after {
         border-radius: 0.5rem 0.5rem 0 0;
         width: 100%;
     }
 
-    .section h2 {
+    .container section h2 {
         white-space: wrap;
     }
 
-    .section .stainedGlass::after {
+    .container section .stainedGlass::after {
         border-radius: 0 0 0.5rem 0.5rem;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .Container {
+    .container {
         padding: 5px 10px;
     }
 
 }
 
 @media screen and (max-width: 1200px) {
-    .section .stainedGlass {
+    .container section .stainedGlass {
         align-items: baseline;
         flex-direction: column;
     }

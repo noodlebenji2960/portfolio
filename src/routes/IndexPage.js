@@ -10,7 +10,7 @@ const IndexPage = () => {
 
     return (<>
         <div className={styles.pageContainer}>
-            <div className={styles.section}>
+            <section>
                 <nav>
                     <ul>
                         <li>
@@ -51,14 +51,14 @@ const IndexPage = () => {
                         </li>
                     </ul>
                 </nav>
-            </div>
-            <div className={styles.section}>
+            </section>
+            <section>
                 <div>
                     <h3><i>function</i> ☕ intoCode &#123;</h3>
                     <p><b>return (</b><i> "Self-taught web developer passionate about creating seamless and visually compelling online experiences." </i><b> )</b></p>
                     <h3>&#125;</h3>
                 </div>
-            </div>
+            </section>
         </div >
     </>);
 };

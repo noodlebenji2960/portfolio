@@ -1,6 +1,5 @@
 .pageContainer {
     padding: 5px;
-    padding-top: 50px;
     padding-bottom: 50px;
     overflow: hidden;
     display: flex;
@@ -8,7 +7,7 @@
     gap: 0.5rem;
 }
 
-.section {
+section {
     display: flex;
     flex-direction: column;
     border-radius: 0.5rem;
@@ -18,51 +17,51 @@
     padding: 1rem 10px;
 }
 
-.section:first-of-type {
+section:first-of-type {
     flex-direction: row;
 }
 
-.section:first-of-type a{
+section:first-of-type a{
     padding: 0;
 }
 
-.section:first-of-type b{
+section:first-of-type b{
     color: var(--common-text-color) !important;
 }
 
-.section:first-of-type i{
+section:first-of-type i{
     color: var(--secondary-text-color);
 }
 
-.section:first-of-type h3{
+section:first-of-type h3{
     color: var(--primary-text-color) !important;
 }
 
-.section nav ul{
+section nav ul{
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
 }
 
-.section nav li,
-.section nav li a{
+section nav li,
+section nav li a{
     transition: all 0.5s ease-in-out;
     border-radius: 0.2rem;
     padding: 5px;
     color: var(--primary-text-color);
 }
 
-.section nav li:hover:not(.activeTab){
+section nav li:hover:not(.activeTab){
     background: rgba(0, 0, 0, 0.7);
 }
 
-.section nav li:hover:not(.activeTab) a{
+section nav li:hover:not(.activeTab) a{
     color: white;
     border-radius: 0.3rem;
 }
 
 
-.section {
+section {
     padding: 0;
 }
 
@@ -72,14 +71,14 @@
     }
 }
 
-.section h3 {
+section h3 {
     color: var(--primary-accent-color);
     position: relative;
     width: fit-content;
     padding: 5px 15px;
 }
 
-.section p {
+section p {
     padding: 0px 15px;
     margin-left: 25px;
     position: relative;

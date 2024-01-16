@@ -8,7 +8,7 @@
     gap: 0.5rem;
 }
 
-.section {
+section {
     display: flex;
     flex-direction: column;
     border-radius: 0.5rem;
@@ -16,23 +16,23 @@
     
 }
 
-.section {
+section {
     margin: 0px 50px;
 }
 
-.section {
+section {
     display: flex;
     flex-direction: row;
 }
 
-.section>div:first-of-type>div {
+section>div:first-of-type>div {
     display: flex;
     justify-content: center;
     align-items: center;
     width: min-content;
 }
 
-.section nav ul li a:first-of-type{
+section nav ul li a:first-of-type{
     margin-left: -10px !important;
 }
 
@@ -166,7 +166,7 @@ a:hover{
 }
 
 
-.section div {
+section div {
     width: 100%;
 }
 
@@ -205,7 +205,7 @@ a:hover{
     transform: scale(105%);
 }
 
-.section .card video {
+section .card video {
     position: absolute;
     object-fit: cover;
     object-position: 0% 15%;
@@ -215,12 +215,12 @@ a:hover{
     transition: all 1s ease-in-out 0.2s;
 }
 
-.section .card img {
+section .card img {
     object-fit: cover !important;
     height: 100%;
     width: 100%;
 }
 
-.section:has(.hovered) .card:not(.hovered){
+section:has(.hovered) .card:not(.hovered){
     filter: blur(3px) contrast(30%) brightness(60%);
 }

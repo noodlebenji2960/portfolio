@@ -24,7 +24,7 @@ const ProjectPage = ({ }) => {
                 {projectData && projectData.preview.type == "image" && <img src={projectData.preview.url} />}
                 <h1>{location.pathname}</h1>
             </div>
-            <div className={styles.section}>
+            <section>
                 <h1>
                     {projectData && projectData.name}
                 </h1>
@@ -61,7 +61,7 @@ const ProjectPage = ({ }) => {
                         <p>{projectDataArray && projectDataArray.description}</p>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     )
 }
