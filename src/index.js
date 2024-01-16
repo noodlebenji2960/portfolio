@@ -1,7 +1,7 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import ReactDOM from "react-dom/client";
 import {
-    createBrowserRouter,
+    createHashRouter,
     createRoutesFromElements,
     RouterProvider,
     Outlet,
@@ -125,7 +125,7 @@ const routes = createRoutesFromElements(
 );
 
 
-const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <DarkModeProvider>
