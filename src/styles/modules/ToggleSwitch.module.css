@@ -1,47 +1,57 @@
 .toggleSwitch {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 24px;
-    margin: 0 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 24px;
+  margin: 0 5px;
 }
-  
-  .toggleSwitch input {
-    display: none;
-  }
-  
-  .toggleSwitch label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.2s ease-in-out;
-    outline: 3px solid var(--primary-accent-color);
-    outline-offset: 2px;
-  }
-  
-  .toggleSwitch input:checked+label {
-    background: none;
-  }
-  
-  .toggleSwitch input+label>div {
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .toggleSwitch input:checked+label>div {
-    transform: translateX(24px);
-  }
-  
-  .toggleSwitch input+label>div svg {
-    color: var(--primary-accent-color);
-  }
-  
-  .toggleSwitch input:checked+label>div svg {
-    color: var(--primary-accent-color);
-  }
+
+.toggleSwitch input {
+  display: none;
+}
+
+.toggleSwitch label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  box-shadow: inset -1px 5px 5px rgba(0, 0, 0, 1);
+  outline: 2px solid var(--border-color);
+  outline-offset: -1px;
+}
+
+.toggleSwitch label svg {
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 100% !important;
+  outline: 2px solid var(--border-color);
+  background: var(--primary-background-color);
+}
+
+.toggleSwitch input:checked + label {
+  background: none;
+}
+
+.toggleSwitch input + label > div {
+  transition: all 0.2s ease-in-out;
+}
+
+.toggleSwitch input:checked + label > div {
+  transform: translateX(27px);
+}
+
+.toggleSwitch input + label > div svg,
+.toggleSwitch input:checked + label > div svg {
+  color: var(--primary-text-color);
+}

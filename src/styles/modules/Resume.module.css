@@ -1,0 +1,46 @@
+.title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.codeContainer {
+    background-color: var(--primary-background-color);
+    padding: 0 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-left: 20px;
+}
+
+.codeContainer iframe {
+    width: 100%;
+    background: #282828;
+    border-radius: 0 !important;
+    width: 100%;
+}
+
+.code {
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: var(--primary-text-color);
+}
+
+.bold {
+    font-weight: bold;
+    color: var(--secondary-text-color);
+}
+
+.return {
+    font-size: 0.7rem;
+    color: var(--common-text-purple);
+}
+
+.objectEntry {
+    margin-left: 20px;
+}
+
+.objectValue {
+    display: flex;
+    margin-left: 20px;
+}

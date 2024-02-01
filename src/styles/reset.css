@@ -1,6 +1,7 @@
 /* Box sizing border-box for all elements */
 html {
   box-sizing: border-box;
+  background: var(--background-color);
 }
 
 *,

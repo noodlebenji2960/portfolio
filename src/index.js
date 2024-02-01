@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext, useContext } from "react";
+import React, { useEffect, useState, createContext, useContext, useRef } from "react";
 import ReactDOM from "react-dom/client";
 import {
     createHashRouter,
@@ -6,8 +6,7 @@ import {
     RouterProvider,
     Outlet,
     Route,
-    useParams,
-    useLocation
+    useLocation,
 } from "react-router-dom";
 
 import "./styles/reset.css"
@@ -17,15 +16,98 @@ import "./styles/global.css"
 import ErrorPage from "./routes/ErrorPage";
 import Sidebar from "./components/Sidebar";
 import IndexPage from "./routes/IndexPage";
-import Liquid from "./components/Liquid";
 import ProjectPage from "./routes/ProjectPage";
-import IntroHeader from "./components/IntroHeader";
+import Header from "./components/Header";
 import ProjectsPage from "./routes/ProjectsPage";
+import ContactPage from "./routes/ContactPage";
+import NotFoundPage from "./routes/NotFoundPage";
+import { hexToRgb } from "./components/ColorWheel";
+
+const getCSSValues = () => {
+    // Get the root element of the document (usually <html>)
+    const root = document.documentElement;
+
+    // Get the computed style of the root element
+    const computedStyle = window.getComputedStyle(root);
+
+    // Retrieve the value of the specified CSS variable
+    const primaryR = computedStyle.getPropertyValue(`--primary-hue-theme-r`).trim();
+    const primaryG = computedStyle.getPropertyValue(`--primary-hue-theme-g`).trim();
+    const primaryB = computedStyle.getPropertyValue(`--primary-hue-theme-b`).trim();
+    const primaryA = computedStyle.getPropertyValue(`--primary-hue-theme-a`).trim();
+
+    const secondaryR = computedStyle.getPropertyValue(`--secondary-hue-theme-r`).trim();
+    const secondaryG = computedStyle.getPropertyValue(`--secondary-hue-theme-g`).trim();
+    const secondaryB = computedStyle.getPropertyValue(`--secondary-hue-theme-b`).trim();
+    const secondaryA = computedStyle.getPropertyValue(`--secondary-hue-theme-a`).trim();
+
+    const primary = { r: primaryR, g: primaryG, b: primaryB, a: primaryA }
+    const secondary = { r: secondaryR, g: secondaryG, b: secondaryB, a: secondaryA }
+
+
+    return { primary, secondary }
+}
+
+// Define a context for your theme
+export const ThemeContext = createContext();
+
+const ThemeContextProvider = ({ children }) => {
+    const cssVals = getCSSValues()
+    const [primaryColor, setPrimaryColor] = useState(cssVals.primary);
+    const [secondaryColor, setSecondaryColor] = useState(cssVals.secondary);
+
+    const handleSetPrimary = (value) => {
+        console.log(hexToRgb(value))
+        setPrimaryColor(hexToRgb(value))
+    }
+
+    const handleSetSecondary = (value) => {
+        console.log(hexToRgb(value))
+        setSecondaryColor(hexToRgb(value))
+    }
+
+    useEffect(() => {
+        const root = document.documentElement;
+
+        // Set CSS variables for the color theme
+        root.style.setProperty('--primary-hue-theme-r', primaryColor.r);
+        root.style.setProperty('--primary-hue-theme-g', primaryColor.g);
+        root.style.setProperty('--primary-hue-theme-b', primaryColor.b);
+
+    }, [primaryColor]);
+
+    useEffect(() => {
+        const root = document.documentElement;
+
+        // Set CSS variables for the color theme
+        root.style.setProperty('--secondary-hue-theme-r', secondaryColor.r);
+        root.style.setProperty('--secondary-hue-theme-g', secondaryColor.g);
+        root.style.setProperty('--secondary-hue-theme-b', secondaryColor.b);
+    }, [secondaryColor]);
+
+    useEffect(() => {
+        console.log(cssVals)
+    })
+
+    return (
+        <ThemeContext.Provider value={{ primaryColor, setPrimaryColor: handleSetPrimary, secondaryColor, setSecondaryColor: handleSetSecondary }}>
+            {children}
+        </ThemeContext.Provider>
+    );
+};
+
+
+export const useThemeColor = () => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+        throw new Error('useDarkMode must be used within a DarkModeProvider');
+    }
+    return context;
+};
 
 // Create a context with a default value (false for light mode)
 const DarkModeContext = createContext(false);
 
-// Create a provider component to wrap your application
 export const DarkModeProvider = ({ children }) => {
 
     const prefersDarkMode = () => {
@@ -63,33 +145,27 @@ export const useDarkMode = () => {
 };
 
 export const Layout = () => {
+    const headerRef = useRef()
+    const mainRef = useRef()
     const [collapsedHeader, setCollapsedHeader] = useState(false)
     const location = useLocation()
-    const [follows, setFollows] = useState(false)
-    const [bgOn, setBgOn] = useState(true)
-    const [liquidAmount, setLiquidAmount] = useState(3)
-    const [contrast, setContrast] = useState(15)
-    const [blur, setBlur] = useState(10)
 
     useEffect(() => {
         if (location.pathname !== "/") {
             setCollapsedHeader(true)
-            setFollows(false)
-            setBgOn(false)
-            setContrast(0)
         } else {
             setCollapsedHeader(false)
-            setFollows(true)
-            setBgOn(true)
-            setContrast(15)
         }
-    }, [location, blur, contrast])
+    }, [location, headerRef, mainRef])
+
+    const collapse = () => {
+        setCollapsedHeader(true)
+    }
 
     return (
         <>
-            <Liquid follows={follows} bgOn={bgOn} liquidAmount={liquidAmount} setLiquidAmount={setLiquidAmount} contrast={contrast} setContrast={setContrast} blur={blur} setBlur={setBlur} />
-            <Sidebar follows={follows} setFollows={setFollows} bgOn={bgOn} setBgOn={setBgOn} liquidAmount={liquidAmount} setLiquidAmount={setLiquidAmount} contrast={contrast} setContrast={setContrast} blur={blur} setBlur={setBlur} />
-            <IntroHeader collapsedHeader={collapsedHeader} />
+            <Sidebar collapse={collapse} />
+            <Header ref={headerRef} collapsedHeader={collapsedHeader} />
             <main>
                 <Outlet />
             </main>
@@ -121,6 +197,9 @@ const routes = createRoutesFromElements(
             <Route path=":projectId" element={<ProjectPage />} />
             <Route path="webDev" element={<ProjectsPage activeTab={"projects"} />} />
         </Route>
+
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
     </Route>
 );
 
@@ -129,6 +208,8 @@ const router = createHashRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <DarkModeProvider>
-        <RouterProvider router={router} />
+        <ThemeContextProvider>
+            <RouterProvider router={router} />
+        </ThemeContextProvider>
     </DarkModeProvider>
 );

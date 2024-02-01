@@ -10,7 +10,7 @@ const DropdownMenu = ({ children, active, setActive }) => {
 
     useEffect(() => {
         const handleMouseMove = (e) => {
-            if(!active){
+            if (!active) {
                 cursorPos.current = {
                     top: e.clientY,
                     left: e.clientX,
@@ -27,15 +27,15 @@ const DropdownMenu = ({ children, active, setActive }) => {
 
     useEffect(() => {
         const handleWindowClick = (e) => {
-          if (!hovering.current) {
+            if (!hovering.current) {
                 setActive(false)
-          }
+            }
         };
         const handleMouseMove = (e) => {
             window.addEventListener("click", handleWindowClick);
             if (dropdownRef.current && dropdownRef.current.contains(e.target)) {
                 hovering.current = true
-              
+
                 // Add a click event listener to the window
             } else {
                 hovering.current = false
@@ -48,7 +48,7 @@ const DropdownMenu = ({ children, active, setActive }) => {
             window.removeEventListener("click", handleWindowClick);
         }
     }, [active, dropdownRef.current])
-      
+
 
     useEffect(() => {
         if (dropdownRef.current) {
@@ -79,6 +79,7 @@ const DropdownMenu = ({ children, active, setActive }) => {
     return active === true ? (
         <div
             ref={dropdownRef}
+            onClick={(e)=>e.stopPropagation()}
             className={styles.dropdown}
             style={{
                 top: cursorPos.current.top,

@@ -1,76 +1,79 @@
-.carousel {
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-    padding: 5px 0px;
-    max-height: 999px !important;
-    overflow: hidden;
-    transition: all 1s ease;
-  }
+.Carousel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 5px 0px;
+  overflow: hidden;
+  transition: all 1s ease;
+}
 
-  .collapsed{
-    max-height: 0px !important;
-    padding: 0px;
-  }
-  
-  .carouselContent {
-    display: flex;
-    overflow: hidden;
-    gap: 5px;
-  }
-  
-  .carousel>div:first-of-type:hover>div:not(:hover) {
-    filter: blur(2px) opacity(50%);
-  }
-  
-  .carousel button {
-    background: none;
-    outline: none;
-    padding: 0;
-    z-index: 1;
-    position: absolute;
-    color: white;
-  }
+.carouselContent {
+  display: flex;
+  overflow: hidden;
+  gap: 5px;
+  width: 100vw;
+}
 
-  .carousel button:first-of-type{
-    left: -10%;
-  }
+.Carousel::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-90deg, var(--secondary-accent-color), transparent 80%, var(--primary-accent-color));
+  border-radius: 0;
+  z-index: 1;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.4);
+}
 
-  .carousel button:last-of-type{
-    right: -10%;
+@media screen and (min-width:850px) {
+  .Carousel::after {
+    opacity: 0;
   }
-  
-  .carouselContent div svg{
-    display: flex;
-    color: var(--primary-background-color);
-    opacity: 70%;
-    width: 50px;
-    height: 50px;
-  }
+}
 
-  .carouselContent svg:hover{
-    color: var(--primary-text-color);
-    opacity: 100%;
-  }
+.Carousel button {
+  background: none;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  color: white;
+  ;
+  z-index: 2;
+}
 
-  .carouselContent:has(svg:hover){
-    padding: 0px 0px;
-  }
+.Carousel button:first-of-type {
+  left: 0%;
+}
 
-  .carouselContent div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .carousel button svg {
-    color: var(--primary-background-color);
-    transform-origin: center;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .carousel button:hover svg {
-    transform: scale(125%);
-    color: white;
-  }
+.Carousel button:last-of-type {
+  right: 85px;
+}
+
+.carouselContent div svg {
+  display: flex;
+  color: var(--primary-background-color);
+  opacity: 70%;
+  width: 40px;
+  height: 40px;
+}
+
+.carouselContent div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Carousel button svg {
+  color: var(--primary-background-color);
+  transform-origin: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.Carousel button:hover svg {
+  transform: scale(125%);
+  color: white;
+}

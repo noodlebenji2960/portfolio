@@ -15,7 +15,7 @@ const Carousel = ({ children, collapsed }) => {
         requestAnimationFrame(scroll);
 
         function scroll() {
-            if (isMouseDown.current) {
+            if (isMouseDown.current && contentRef.current) {
                 if (contentRef.current.scrollLeft <= 49) {
                     setChildEles((prevArray) => {
                         const lastElement = prevArray.pop()
@@ -48,21 +48,23 @@ const Carousel = ({ children, collapsed }) => {
     const setAnimation = () => {
         const direction = 'right';
         const container = contentRef.current;
-        if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 50) {
-            container.scrollTo({
-                left: container.scrollLeft - 50
-            })
-            const [firstItem, ...restItems] = childEles;
-            setChildEles([...restItems, firstItem]);
-        } else {
-            container.scrollTo({
-                left: container.scrollLeft + (direction === 'left' ? -1 : 1)
-            });
+        if (container) {
+            if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 50) {
+                container.scrollTo({
+                    left: container.scrollLeft - 50
+                })
+                const [firstItem, ...restItems] = childEles;
+                setChildEles([...restItems, firstItem]);
+            } else {
+                container.scrollTo({
+                    left: container.scrollLeft + (direction === 'left' ? -1 : 1)
+                });
+            }
         }
     }
 
     const checkOverflowing = () => {
-        if (contentRef.current.offsetWidth >= 555) {
+        if (contentRef.current.offsetWidth >= 850) {
             setIsOverFlowing(false)
         } else {
             setIsOverFlowing(true)
@@ -87,24 +89,8 @@ const Carousel = ({ children, collapsed }) => {
         return () => clearInterval(intervalId);
     }, [childEles, isOverflowing]);
 
-    useEffect(() => {
-        const handleMouseEnter = () => {
-            clearInterval(intervalId)
-            setIsOverFlowing(false)
-        }
-        contentRef.current.addEventListener("mouseover", handleMouseEnter)
-    }, [contentRef.current])
-
-    useEffect(() => {
-        const handleMouseOut = () => {
-            checkOverflowing()
-        }
-        contentRef.current.addEventListener("mouseleave", handleMouseOut)
-    }, [contentRef.current])
-
-
     return (
-        <div className={`${styles.carousel} ${collapsed ? styles.collapsed: ""}`}>
+        <div className={styles.Carousel}>
             {isOverflowing && <button
                 onMouseDown={() => handleMouseDown('left')}
                 onMouseUp={handleMouseUp}

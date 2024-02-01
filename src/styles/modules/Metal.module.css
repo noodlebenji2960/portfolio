@@ -1,0 +1,22 @@
+.metal{
+    position: relative;
+    overflow: hidden;
+    z-index: 9;
+    height: 50px;
+    width: 100% !important;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(-5deg, var(--secondary-accent-color), transparent 70%, var(--primary-accent-color));
+    box-shadow: inset 0 -5px 8px rgb(0, 0, 0) !important;
+    opacity: 80%;
+}
+
+.metal img{
+    top: 0%;
+    left: 0;
+    width: 100% !important;
+    object-fit: cover;
+    height: 100%;
+    width: 100% !important;
+    opacity: 98%;
+}

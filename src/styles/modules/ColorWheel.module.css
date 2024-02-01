@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 55px;
+  height: 25px;
+  color: var(--text-color);
+  text-align: center;
+  pointer-events: all;
+}
+
+.toggleButton {
+  border-radius: 1rem;
+  cursor: pointer;
+  display: flex;
+  height: 25px;
+  width: 55px;
+  box-shadow: inset 0 5px 5px black;
+  outline: 2px solid var(--border-color) !important;
+  outline-offset: -1px !important;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  background-color: var(--primary-background-color);
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+  z-index: 99999999;
+  display: flex;
+  align-items: start;
+  padding: 0.5rem;
+  box-shadow: -1px 5px 10px rgba(0, 0, 0, 0.6);
+  outline: 2px solid var(--border-color);
+  outline-offset: -2px;
+}
+
+.popup button svg,
+.popup button button{
+  background: none;
+  margin: 0;
+  padding: 0;
+  animation: none !important;
+  transition: none !important;
+  transform: scale(100%) !important;
+  height: 20px;
+  width: 20px;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.colorWheelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.circle {
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    hsl(270, 100%, 50%),
+    hsl(315, 100%, 50%),
+    hsl(360, 100%, 50%),
+    hsl(45, 100%, 50%),
+    hsl(90, 100%, 50%),
+    hsl(135, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(225, 100%, 50%),
+    hsl(270, 100%, 50%)
+  );
+  cursor: none;
+  position: relative;
+}
+
+.circle::after{
+  content: "";
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 4px 5px black;
+  outline: 1px solid var(--border-color);
+  z-index: 1;
+  border-radius: 50%;
+  mix-blend-mode: darken;
+}
+
+.circleSaturationOverlay{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  content: "";
+  display: flex;
+  border-radius: 50%;
+  background: radial-gradient(hsl(0, 0%, 50%), transparent );
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.colorWheelContainer span{
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.selectedColor {
+  width: 1rem;
+  height: 1rem;
+}

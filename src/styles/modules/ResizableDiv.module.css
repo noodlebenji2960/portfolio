@@ -1,0 +1,120 @@
+button.filterButton {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    transition: 0.2s all ease-in-out;
+    background: var(--primary-background-color);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+    padding: 5px !important;
+    height: 35px;
+    width: 35px;
+    right: 20px !important;
+    border: 3px solid var(--border-color) !important;
+    background: var(--primary-background-color);
+    z-index: 999;
+}
+
+.filterButton svg{
+    color: var(--primary-text-color);
+}
+
+.filterButton1{
+    top: 165px;
+}
+
+button.filterButton.filterButton2{
+    top: 205px;
+}
+
+button.filterButton.filterButton3{
+    top: 245px;
+}
+
+
+.filterButton:hover{
+    background: var(--secondary-accent-color) !important;
+}
+
+.expanded{
+    max-height: 0;
+    max-width: 0%;
+}
+
+.resizableDiv{
+    position: relative;
+    height: 100% !important;
+}
+
+.resizeHandle{
+    position: absolute;
+    top: 0;
+    right: 0%;
+    height: 100%;
+    background: var(--primary-background-color);
+    padding: 1px;
+    cursor: col-resize;
+    box-shadow: -1px 1px 3px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.resizeHandle svg{
+    color: var(--border-color);
+    height: 100%;
+    width: 5px;
+}
+
+.resizableDiv input{
+    border: 0;
+    height: 50px;
+    width: 100% !important;
+    padding: 15px;
+    background: var(--primary-accent-color);
+    color: var(--primary-background-color);
+    border-radius: 0.3rem;
+}
+
+
+@media Screen and (max-width:600px) {
+    .resizeHandle{
+        display: none;
+    }
+
+    .resizableDiv{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 5;
+        height: min-content !important;
+        display: flex;
+        width: 100vw !important;
+        z-index: 9999;
+        overflow: visible;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.4);
+    }
+    .resizableDiv::after{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        content: "";
+        background: var(--background-color);
+        border-radius: 0.5rem 0.5rem 0 0;
+        z-index: -1;
+    }
+    .resizableDiv div:has(nav),
+    .resizableDiv div:has(nav ul),
+    .resizableDiv div:has(nav ul li){
+        display: flex;
+        width: 100%;
+    }
+}
+
+.resizableDiv input::placeholder{
+    color: var(--primary-background-color);
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

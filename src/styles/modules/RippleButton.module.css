@@ -1,0 +1,68 @@
+/* src/components/RippleEffect.module.css */
+.rippleContainer {
+  display: flex;
+  height: 35px;
+  min-width: 100px;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+  overflow: hidden !important;
+  color: var(--primary-text-color);
+  border-radius: 0.5rem !important;
+  outline: 4px solid var(--primary-text-color);
+  outline-offset: -1px;
+  border-bottom: 6px solid var(--primary-text-color);
+  box-shadow: 0 5px 10px black;
+}
+
+.rippleContainer > div:last-of-type{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 3px;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  width: 100%;
+  height: 100% !important;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  color: var(--primary-text-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  z-index: -2;
+  user-select: none;
+  overflow: hidden;
+}
+
+.rippleContainer > div:last-of-type svg{
+  color: var(--primary-text-color);
+  width: 27px;
+  height: 27px;
+}
+
+.ripple {
+  display: flex;
+  position: absolute !important;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  animation: ripple-animation 0.9s linear;
+  transform-origin: center;
+  transform: scale(0);
+  z-index: -1;
+  mix-blend-mode: hard-light;
+  background: var(--secondary-accent-color);
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(30);
+    opacity: 0;
+  }
+}
+
+.altBackground{
+  background: var(--primary-accent-color);
+}

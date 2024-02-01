@@ -52,4 +52,13 @@ input[type="range"]{
     font-weight: 600;
     pointer-events: none;
     user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.sliderValue svg{
+    height: 20px;
+    width: 20px;
 }

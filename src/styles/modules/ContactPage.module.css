@@ -1,0 +1,114 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 80px 12px 10px;
+  }
+  
+  .title {
+    color: var(--primary-text-color);
+    font-size: 2rem;
+  }
+  
+  .description {
+    color: var(--primary-text-color);
+    font-size: 1rem;
+  }
+  
+  .textarea {
+    display: flex;
+    min-height: 200px;
+    height: calc(30vh) !important;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    resize: none;
+    border-radius: 0 0 16px 16px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    background: var(--primary-background-color);
+  }
+
+  .container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+    height: 100%;
+    gap: 0.5rem;
+  }
+
+  .container form div > label:first-of-type{
+    padding-top: 50px;
+  }
+
+  .container form span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 2%;
+  }
+
+  @media screen and (min-width:1000px) {
+    .container form span{
+      flex-direction: row;
+      width: 100%;
+      justify-content: end;
+    }
+  }
+
+  .container form span span{
+    flex-direction: row;
+  }
+
+  .container form label{
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(-90deg, var(--secondary-accent-color), var(--primary-accent-color));
+    color: var(--primary-background-color);
+    font-weight: 600;
+    padding: 5px;
+  }
+
+  .container form label input{
+    padding: 0 15px;
+    outline: none;
+    border: none;
+    background: white;
+    color: black;
+    width: 100%;
+  }
+
+  .container form label input::placeholder{
+    color: black;
+  }
+
+  .container form label input:disabled::placeholder{
+    color: black;
+  }
+
+  .container form textarea{
+    height: 100%;
+    background: rgb(255, 255, 255);
+  }
+
+  .container form div{
+    position: relative;
+  }
+
+  .container form > div > svg{
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    color: var(--background-color);
+    height: 150px;
+    width: 150px;
+    bottom: 5%;
+    right: 2.5%;
+    transform: rotateY(180deg) rotateX(30deg);
+  }
+
+  .buyCoffee{
+    width: 100%;
+    max-width: 500px;
+  }

@@ -234,7 +234,12 @@ const LiquidBackGround = ({ bgOn, liquidAmount }) => {
 };
 
 
-const Liquid = ({ follows, bgOn, setBgOn, liquidAmount, blur, contrast }) => {
+const Liquid = () => {
+    const [follows, setFollows] = useState(false)
+    const [bgOn, setBgOn] = useState(true)
+    const [liquidAmount, setLiquidAmount] = useState(3)
+    const [contrast, setContrast] = useState(15)
+    const [blur, setBlur] = useState(10)
 
     return (<>
         <div className={styles.blobContainer} style={{transform: `blur(${blur}px) contrast(${contrast})`}}>

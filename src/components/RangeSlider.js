@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/modules/RangeSlider.module.css';
 
-const RangeSlider = ({ value, setValue, min, max }) => {
+const RangeSlider = ({ icon, value, setValue, min, max }) => {
 const [mouseDown, setMouseDown]=useState(false)
 const cursorPos = useRef({
     x: 0, y:0
@@ -55,7 +55,9 @@ const[newValue, setNewValue]=useState(value)
       <div className={styles.sliderDial}>
         <div className={styles.dialNeedle} style={{transform: `translateX(15px) translateY(15px) rotate(${mouseDown ? Math.round(newValue/36*10) : (Math.round(value))}deg)`}}/>
       </div>
-      <div className={styles.sliderValue}>{Math.round(newValue/36*10)}%</div>
+      <div className={styles.sliderValue}>
+        {icon ? icon : `${Math.round(newValue/36*10)}%`}
+      </div>
     </div>
   );
 };

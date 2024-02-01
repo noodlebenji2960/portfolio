@@ -1,0 +1,113 @@
+.videoPlayer {
+  position: relative;
+  overflow: hidden;
+  max-width: fit-content;
+  color: var(--primary-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.video {
+  width: 100% !important;
+  background: none !important;
+  outline: none !important;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--primary-background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  padding: 10px;
+}
+
+.controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-background-color);
+  outline: none;
+  border: none;
+  border-radius: 0;
+  color: var(--primary-text-color);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 15px;
+}
+
+.controls button:hover {
+  color: var(--primary-accent-color);
+}
+
+.playButton,
+.playButton svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playButton {
+  position: absolute;
+  width: 150%;
+  height: 200px;
+  z-index: 1;
+  outline: none;
+  border-radius: 0.5rem;
+  transition: all 0.1s ease-in-out;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+}
+
+.playButton svg {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  transition: all 0.1s ease-in-out;
+  border-radius: 1rem;
+  color: var(--primary-accent-color);
+  z-index: 1;
+  opacity: 80%;
+}
+
+.playButton:hover svg {
+  color: var(--primary-accent-color);
+  opacity: 100%;
+}
+
+.playButton:active svg {
+  color: var(--secondary-accent-color);
+}
+
+.progressContainer {
+  width: 100%;
+  height: 8px;
+  background-color: #ccc;
+  margin: 0 10px;
+  border-radius: 4px;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.progressBar,
+.progressBarHandle {
+  position: relative;
+  height: 100%;
+}
+
+.progressBar {
+  background-color: var(--primary-accent-color);
+  border-radius: 4px;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+.progressBarHandle:active {
+  cursor: grabbing;
+}

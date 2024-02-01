@@ -1,46 +1,51 @@
-.darkMode {
-  /* Primary Colors */
-  --primary-accent-color: #ffae00;
-  --primary-inverted-accent-color: #db9b34;
-  --primary-text-color: #ffffff;
-  --primary-background-color: #222222;
-  --primary-button-background-color: #333;
-  --primary-button-background-color-hover: #cccccc;
-  --primary-button-icon-color: #333;
+:root{
+  --primary-hue-theme-r: 255;
+  --primary-hue-theme-g: 200;
+  --primary-hue-theme-b: 0;
+  --primary-hue-theme-a: 1;
 
-  /* Secondary Colors */
-  --secondary-accent-color: #00FF00;
+  --secondary-hue-theme-r: 0;
+  --secondary-hue-theme-g: 255;
+  --secondary-hue-theme-b: 174;
+  --secondary-hue-theme-a: 1;
+
+  --primary-accent-color: rgba(var(--primary-hue-theme-r), var(--primary-hue-theme-g), var(--primary-hue-theme-b), var(--primary-hue-theme-a));
+  --secondary-accent-color: rgba(var(--secondary-hue-theme-r), var(--secondary-hue-theme-g), var(--secondary-hue-theme-b), var(--secondary-hue-theme-a));
+  --primary-background-color-alpha: rgba(var(--primary-hue-theme-r), calc(var(--primary-hue-theme-g) - 10), var(--primary-hue-theme-b), calc(var(--primary-hue-theme-a) - 0.3));
+
+  --common-text-color: white;
+  --common-text-purple: purple;
+  --secondary-text-color: rgb(35, 114, 170);
+  --secondary-text-color-alpha: rgba(35, 114, 170, 0.65);
+  --secondary-text2-color: rgb(255, 198, 40);
   --secondary-background-color: #77a6c5dd;
-
-  --border-color: #313131;
-
-  /* Common Sizes and Shadows */
   --border-radius: 4px;
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.lightMode {
+.darkMode {
+  --background-color: #000000;
+
   /* Primary Colors */
-  --primary-accent-color: #ff2200;
-  --primary-inverted-accent-color: #db9b34;
+  --primary-text-color: #ffffff;
+  --primary-background-color: #282828;
+  --primary-button-background-color: #333;
+  --primary-button-background-color-hover: #cccccc;
+  --primary-button-icon-color: #333;
+
+  --border-color: #313131;
+
+}
+
+.lightMode {
+  --background-color: #f9f5e7;
+
+  /* Primary Colors */
   --primary-text-color: #000000;
   --primary-background-color: #ffffff;
   --primary-button-background-color: #333;
   --primary-button-background-color-hover: #cccccc;
   --primary-button-icon-color: #333;
 
-  /* Secondary Colors */
-  --secondary-accent-color: #000000;
-  --secondary-background-color: #77a6c5dd;
-
   --border-color: #ddd;
-
-  /* Common Sizes and Shadows */
-  --border-radius: 4px;
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-:root{
-  --common-text-color: #b9d3ea;
-  --secondary-text-color: #2371aa;
 }
