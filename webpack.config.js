@@ -5,7 +5,9 @@ module.exports = (env, argv) => {
     const isProduction = argv.mode === "production";
 
     return {
-        entry: "./src/index.js",
+        entry: {
+            main: "./src/index.js",
+        },
         output: {
             filename: isProduction ? "[name].[contenthash].js" : "[name].js",
             path: path.resolve(__dirname, "build"),
@@ -21,42 +23,34 @@ module.exports = (env, argv) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
                     use: ["babel-loader"],
                 },
                 {
-                    test: /\.css$/,
-                    exclude: /\.module\.css$/,
-                    use: ['style-loader', 'css-loader'],
-                },
-                {
-                    test: /\.module\.css$/,
-                    use: [
-                        'style-loader',
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                modules: {
-                                    localIdentName: '[name]__[local]--[hash:base64:5]',
-                                },
-                                sourceMap: true,
-                            },
-                        },
-                    ],
+                    test: /\.css$/i,
+                    exclude: /node_modules/,
+                    use: ["style-loader", "css-loader"],
                 },
                 {
                     test: /\.(webp|png|avif|jpe?g|gif|bmp|svg)$/i,
                     exclude: /node_modules/,
-                    use: 'file-loader',
+                    type: "asset/resource",
+                    generator: {
+                        filename: 'assets/images/[name][ext]',
+                    },
                 },
                 {
-                    test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                    test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)$/i,
                     exclude: /node_modules/,
-                    use: 'file-loader',
-                }
+                    type: "asset/resource",
+                    generator: {
+                        filename: 'assets/videos/[name][ext]',
+                    },
+                },
             ],
         },
         resolve: {
-            extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+            extensions: [".js", ".jsx", ".css"],
         },
         optimization: {
             splitChunks: {
@@ -75,5 +69,5 @@ module.exports = (env, argv) => {
                 template: path.join(__dirname, "public", "index.html"),
             }),
         ],
-    }
-}
+    };
+};
