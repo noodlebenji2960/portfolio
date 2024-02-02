@@ -12,6 +12,7 @@ module.exports = (env, argv) => {
             filename: isProduction ? "[name].[contenthash].js" : "[name].js",
             path: path.resolve(__dirname, "build"),
             clean: true,
+            publicPath: '/portfolio/',
         },
         devtool: isProduction ? 'source-map' : 'eval-source-map',
         devServer: {
