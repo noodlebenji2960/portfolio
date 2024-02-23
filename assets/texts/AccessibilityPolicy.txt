@@ -1,0 +1,29 @@
+Accessibility Policy
+
+Last Updated: [Date]
+
+Welcome to [Your Website Name] ("us," "we," or "our"). We are committed to ensuring that our website is accessible to all individuals, including those with disabilities. We strive to provide an inclusive and user-friendly experience for everyone.
+
+Web Content Accessibility Guidelines (WCAG)
+We have implemented the following measures to make our website accessible in accordance with the Web Content Accessibility Guidelines (WCAG):
+
+Alternative Text: Images on our website include descriptive alternative text to assist users with screen readers.
+Keyboard Navigation: Our website is designed to be navigable using a keyboard.
+Readable Text: We ensure that text on our website is legible and readable, with appropriate contrast and font sizes.
+Descriptive Links: Links are written to be descriptive and provide context for users using screen readers.
+Ongoing Accessibility Efforts
+We are continuously working to improve the accessibility of our website. This includes regular testing and assessments to identify and address any accessibility issues.
+
+Feedback
+If you encounter any accessibility barriers on our website or have suggestions for improvement, please let us know. We value your feedback and are committed to addressing any issues promptly.
+
+Email: [your@email.com]
+External Links
+Our website may contain links to external websites that are not controlled or endorsed by [Your Name or Company Name]. We are not responsible for the accessibility of these external sites.
+
+Future Improvements
+We are dedicated to maintaining and improving the accessibility of our website. As technology and standards evolve, we will strive to implement changes to enhance accessibility.
+
+Contact Us
+If you have any questions about our Accessibility Policy or need assistance accessing content on our website, please contact us at [your@email.com].
+

@@ -1,0 +1,64 @@
+[Your Company Name]
+[Your Company Address]
+[City, State, ZIP Code]
+[Email Address]
+[Phone Number]
+[Date]
+
+[Client Name]
+[Client Address]
+[City, State, ZIP Code]
+[Email Address]
+[Phone Number]
+
+1. Services Provided
+
+1.1 The hosting provider agrees to provide web hosting services to the client as described in Exhibit A, attached hereto and incorporated by reference.
+
+1.2 The client agrees to pay the hosting fees as outlined in Exhibit B, attached hereto and incorporated by reference.
+
+2. Term and Termination
+
+2.1 The initial term of this agreement shall be [start date] to [end date]. Either party may terminate this agreement upon written notice if the other party breaches any material term and fails to cure such breach within [number] days of receiving written notice.
+
+2.2 Upon termination, the client shall pay any outstanding fees incurred up to the termination date.
+
+3. Client Responsibilities
+
+3.1 The client is responsible for providing and maintaining accurate and up-to-date account information, including contact details and payment information.
+
+3.2 The client agrees not to use the hosting services for any unlawful or prohibited activities, as outlined in Exhibit C, attached hereto and incorporated by reference.
+
+4. Service Level Agreement (SLA)
+
+4.1 The hosting provider will use commercially reasonable efforts to ensure the availability and reliability of the hosting services. Details of the SLA are outlined in Exhibit D, attached hereto and incorporated by reference.
+
+5. Limitation of Liability
+
+5.1 The hosting provider's liability for any damages arising out of or related to this agreement shall be limited to the total fees paid by the client in the [number] months preceding the event giving rise to the claim.
+
+6. Confidentiality
+
+6.1 Both parties agree to keep confidential any proprietary or confidential information disclosed during the term of this agreement.
+
+7. Governing Law
+
+7.1 This agreement shall be governed by and construed in accordance with the laws of [your jurisdiction].
+
+8. Miscellaneous
+
+8.1 This agreement constitutes the entire understanding between the parties and supersedes any prior agreements or understandings, whether written or oral.
+
+IN WITNESS WHEREOF, the parties hereto have executed this web hosting agreement as of the date first above written.
+
+[Your Company Name] [Client Name]
+
+By: ____________________________ By: ____________________________
+[Your Name, Title] [Client Representative, Title]
+
+Exhibits:
+
+Exhibit A: Description of Hosting Services
+Exhibit B: Fee Schedule
+Exhibit C: Acceptable Use Policy
+Exhibit D: Service Level Agreement
